@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Hero from './hero'
 import beach from '../../public/images/beach.jpg'
-import mainPattern from '../../public/images/mainpattern.png'
 import food from '../../public/images/food1.jpg'
 import interior from '../../public/images/interior1.jpg'
 import service from '../../public/images/service1.jpg'
@@ -72,7 +71,7 @@ const Home = () => {
         </p>
       </motion.div>
       <div className=" relative lg:h-screen flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row w-screen">
-        <img className=' absolute w-[20rem] lg:w-[30rem] lg:left-0 right-5 bottom-[-50px] lg:top-[-130px]' src={mainPattern} />
+        <img className=' absolute w-[20rem] lg:w-[30rem] lg:left-0 right-5 bottom-[-50px] lg:top-[-130px]' src='../../public/images/mainpattern.png' />
         <img className=" w-[90%] lg:w-[40rem] z-10 shadow-xl" src={beach} />
         <div className="flex flex-col justify-center gap-10 px-10 lg:px-24">
           <motion.p
