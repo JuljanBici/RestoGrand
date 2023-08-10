@@ -1,4 +1,4 @@
-import main from '../images/img7.jpg'
+import main from '../../public/images/img7.jpg'
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import transition from './transition';
-import boutUs from '../images/boutUs.jpg'
-import boutUs1 from '../images/boutUs1.jpg'
-import boutUs2 from '../images/boutUs2.jpg'
-import boutUs3 from '../images/boutUs3.jpg'
-import boutUs4 from '../images/boutUs4.jpg'
+import boutUs from '../../public/images/boutUs.jpg'
+import boutUs1 from '../../public/images/boutUs1.jpg'
+import boutUs2 from '../../public/images/boutUs2.jpg'
+import boutUs3 from '../../public/images/boutUs3.jpg'
+import boutUs4 from '../../public/images/boutUs4.jpg'
 import { Link } from 'react-router-dom';
 import { useLang } from './langContext';
 

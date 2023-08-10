@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import emailjs from '@emailjs/browser';
-import pointer from '../images/pointer.png'
-import map from '../images/map.png'
-import phone from '../images/phone.png'
-import email from '../images/email.png'
+import pointer from '../../public/images/pointer.png'
+import map from '../../public/images/map.png'
+import phone from '../../public/images/phone.png'
+import email from '../../public/images/email.png'
 import transition from './transition';
 import { useLang } from './langContext';
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import logoImg from "../images/logoImg.png"
+import logoImg from "../../public/images/logoImg.png"
 import { useLang } from './langContext';
 
 const Footer = () => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import mainMenu from '../images/mainMenu.jpg'
+import mainMenu from '../../public/images/mainMenu.jpg'
 import menu from '../menuData/menu'
 import transition from './transition';
 
