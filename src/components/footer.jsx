@@ -1,21 +1,25 @@
 import { Link } from "react-router-dom"
 import logoImg from "../images/logoImg.png"
+import { useLang } from './langContext';
 
 const Footer = () => {
+
+  const { lang, toggleEng , toggleAlb } = useLang();
+
   return (
-    <div className=" relative h-screen bg-[#151515] flex flex-col justify-between pt-32 pb-3 sm:pb-0 text-white">
+    <div className="relative h-screen bg-[#151515] flex flex-col justify-between pt-32 pb-3 sm:pb-0 text-white">
       <p className=" sm:h-[80%] w-full font-[Italiana] flex items-center justify-center sm:p-20">
         <img src={logoImg}/>
       </p>
       <div className=" sm:h-[15%] sm:flex items-center border-t-[1px] border-gray-700 mx-5 sm:mx-10 justify-around">
         <div className=' flex sm:flex-row flex-col items-center text-[0.9rem] gap-5 py-5 font-normal'>
-        <Link to='/' className=" cursor-pointer px-3 pb-1">HOME</Link>
-          <Link to='/aboutUs' className=" cursor-pointer px-3 pb-1">ABOUT US</Link>
+        <Link to='/' className=" cursor-pointer px-3 pb-1">{lang ? 'HOME' : 'KREU'}</Link>
+          <Link to='/aboutUs' className=" cursor-pointer px-3 pb-1">{lang ? 'ABOUT US' : 'RRETH NESH'}</Link>
           <Link to='/menu' className=" cursor-pointer px-3 pb-1">MENU</Link>
-          <Link to='/contact' className=" cursor-pointer px-3 pb-1">CONTACT</Link>
+          <Link to='/contact' className=" cursor-pointer px-3 pb-1">{lang ? 'CONTACT' : 'KONTAKT'}</Link>
           <div className=" flex px-6 pb-1 font-bold">
-            <p className=" cursor-pointer hover:text-red-500 transition-[.3s]">AL</p>/
-            <p className=" cursor-pointer hover:text-blue-500 transition-[.3s]">EN</p>
+            <p onClick={toggleAlb} className=" cursor-pointer hover:text-red-500 transition-[.3s]">AL</p>/
+            <p onClick={toggleEng} className=" cursor-pointer hover:text-blue-500 transition-[.3s]">EN</p>
           </div>
         </div>
         <div className=" sm:flex sm:items-center sm:justify-between">

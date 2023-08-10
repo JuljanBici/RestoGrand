@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from "react";
 import { GrClose } from "react-icons/gr";
 import { IoIosRestaurant } from "react-icons/io";
+import { useLang } from './langContext';
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isHamburgerHovered, setIsHamburgerHovered] = useState(false);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const hamburgerRef = useRef();
+  const { lang, toggleEng , toggleAlb } = useLang();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +62,7 @@ const Navbar = () => {
             animate={{opacity: 1, y: 0}}
             transition={{ duration: 0.5 , delay: 2.8 }}
           >
-            <Link to='/aboutUs' className="cursor-pointer px-3 pb-1">ABOUT US</Link>
+            <Link to='/aboutUs' className="cursor-pointer px-3 pb-1">{lang ? 'ABOUT US' : 'RRETH NESH'}</Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: -75}}
@@ -74,7 +76,7 @@ const Navbar = () => {
             animate={{opacity: 1, y: 0}}
             transition={{ duration: 0.5 , delay: 3.4 }}
           >
-            <Link to='/contact' className="cursor-pointer px-3 pb-1">CONTACT</Link>
+            <Link to='/contact' className="cursor-pointer px-3 pb-1">{lang ? 'CONTACT' : 'KONTAKT'}</Link>
           </motion.div>
           <motion.div 
             initial={{ opacity: 0 }}
@@ -82,8 +84,8 @@ const Navbar = () => {
             transition={{ duration: 1 , delay: 2 }}
             className="flex px-6 pb-1 font-bold"
           >
-            <p className="cursor-pointer hover:text-red-500">AL</p>/
-            <p className="cursor-pointer hover:text-blue-500">EN</p>
+            <p onClick={toggleAlb} className="cursor-pointer hover:text-red-500">AL</p>/
+            <p onClick={toggleEng} className="cursor-pointer hover:text-blue-500">EN</p>
           </motion.div>
         </div>
         <div
@@ -127,7 +129,7 @@ const Navbar = () => {
                 className="text-white text-xl pb-3 mb-8 pl-10"
               >
                 <Link onClick={handleHamburgerToggle} to="/" >
-                  HOME
+                  {lang ? 'HOME' : 'KREU'}
                 </Link>
               </motion.div>
               <motion.div 
@@ -138,7 +140,7 @@ const Navbar = () => {
                 className="text-white text-xl pb-3 mb-8 pl-10"
               >
                 <Link onClick={handleHamburgerToggle} to="/aboutUs" >
-                  ABOUT US
+                  {lang ? 'ABOUT US' : 'RRETH NESH'}
                 </Link>
               </motion.div>
               <motion.div 
@@ -160,7 +162,7 @@ const Navbar = () => {
                 className="text-white text-xl pb-3 mb-8 pl-10"
               >
                 <Link onClick={handleHamburgerToggle} to="/contact">
-                  CONTACT
+                  {lang ? 'CONTACT' : 'KONTAKT'}
                 </Link>
               </motion.div>
               <div className="flex font-bold text-xl pl-10">
@@ -169,7 +171,7 @@ const Navbar = () => {
                 whileInView={{opacity: 1, x: 0}}
                 viewport={{once: false , amount:0.05 }} 
                 transition={{ duration: 0.5 , delay: 0.9 }} 
-                onClick={handleHamburgerToggle} 
+                onClick={toggleAlb}
                 className="text-white mr-4 cursor-pointer"
                 >
                   AL
@@ -179,7 +181,7 @@ const Navbar = () => {
                 whileInView={{opacity: 1, x: 0}}
                 viewport={{once: false , amount:0.05 }} 
                 transition={{ duration: 0.5 , delay: 1.2 }} 
-                onClick={handleHamburgerToggle} 
+                onClick={toggleEng}
                 className="text-white ml-4 cursor-pointer"
                 >
                   EN

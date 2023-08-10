@@ -7,12 +7,15 @@ import map from '../images/map.png'
 import phone from '../images/phone.png'
 import email from '../images/email.png'
 import transition from './transition';
+import { useLang } from './langContext';
 
 const Contact = () => {
 
   const [isInView, setIsInView] = useState(false);
 
   const { ref: topRef, inView: topInView } = useInView({ threshold: 0.1, triggerOnce: true });
+
+  const { lang } = useLang();
 
   useEffect(() => {
     setIsInView(topInView);
@@ -55,7 +58,7 @@ const Contact = () => {
         whileInView={{opacity: 1, y: 0}}
         viewport={{once: true , amount:0.1 }} 
         transition={{type: 'spring', duration: 1.5, delay:0.3}}
-        className=' sm:text-[5.5rem] text-[3rem]'> Send Us a Message </motion.p>
+        className=' sm:text-[5.5rem] text-[3rem]'> { lang ? 'Send Us a Message' : 'Na dergo nje Mesazh'} </motion.p>
         <div className=' flex flex-col sm:flex-row gap-32 w-[100%] sm:w-[70%] justify-between py-10 '>
           <motion.div
             className='border-t-[1px] w-[90%] border-gray-700 py-5'
@@ -65,7 +68,7 @@ const Contact = () => {
             transition={{type: 'spring', duration: 0.5, delay:1}}
             >
             <div className='flex items-center pb-5'>
-              <p className=' text-gray-700'>PHONE NUMBER</p>
+              <p className=' text-gray-700'> { lang ? 'PHONE NUMBER' : 'NUMRI I TELEFONIT'} </p>
               <img className=' h-5 invert opacity-40 px-2' src={phone} />
             </div>
             <a className=' pb-2'>068 999 9999</a>
@@ -78,7 +81,7 @@ const Contact = () => {
             className='border-t-[1px] w-[90%] border-gray-700 py-5'
             >
           <div className='flex items-center pb-5'>
-              <p className=' text-gray-700'>ADDRESS</p>
+              <p className=' text-gray-700'> { lang ? 'ADDRESS' : 'ADRESA'} </p>
               <img className=' h-5 invert opacity-40 px-2' src={pointer} />
           </div>
             <p>Blv. Nënë Tereza</p>
@@ -103,7 +106,7 @@ const Contact = () => {
       </div>
       <div className=' flex md:flex-row flex-col py-20 sm:pl-20 pl-10 gap-24'>
       <div className="  md:w-[40%] w-[90%]">
-          <p className="font-light pb-2 sm:text-xl">Get in touch or shoot us an email directly. </p>
+          <p className="font-light pb-2 sm:text-xl"> { lang ? 'Get in touch or shoot us an email directly.' : 'Ose na shkruaj direkt ketu.'}  </p>
           <form ref={form} onSubmit={sendEmail} className="space-y-8 ">
               <div className="z-30">
                 <motion.input 
@@ -130,13 +133,13 @@ const Contact = () => {
                     name='message' rows="6" className=" resize-none block p-2.5 w-full text-sm text-white bg-transparent rounded-lg shadow-sm border border-gray-400 placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none" placeholder="Message"></motion.textarea>
               </div>
               <button type='submit' value='Send' className=" z-50 flex items-center justify-between rounded-2xl bg-[#1C1C1E] px-5 py-3 text-center text-sm font-semibold text-white hover:bg-gray-700 duration-200 hover:cursor-pointer active:duration-75">
-                Send
+              { lang ? 'Send' : 'Dergo'} 
               </button>
             </form>
         </div>
         <div className='border-t-[1px] sm:w-[30%] w-[80%] border-gray-700 py-5'>
           <div className='flex items-center justify-center pb-5'>
-              <p className=' text-gray-700'>Opening Hours</p>
+              <p className=' text-gray-700'> { lang ? 'Opening Hours' : 'Oret e hapjes'} </p>
               <img className=' h-5 invert opacity-40 px-2' src={pointer} />
           </div>
           <div className=' flex justify-evenly'>
@@ -146,7 +149,7 @@ const Contact = () => {
               viewport={{once: true , amount:0.1 }} 
               transition={{type: 'spring', duration: 0.5, delay:0.6}}
             >
-              <p>Mon-Fri</p>
+              <p> { lang ? 'Mon-Fri' : 'Hen-Pre'} </p>
               <p>08:00 22:00</p>
             </motion.div>
             <motion.div
@@ -155,7 +158,7 @@ const Contact = () => {
               viewport={{once: true , amount:0.1 }} 
               transition={{type: 'spring', duration: 0.5, delay:1.2}}
             >
-              <p>Sat-Sun</p>
+              <p> { lang ? 'Sat-Sun' : 'Fundjave'} </p>
               <p>24hr</p>
             </motion.div>
           </div>
