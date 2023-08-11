@@ -50,8 +50,8 @@ const Contact = () => {
         setIsInView(inView);
       }}
       >
-      <img className="absolute h-[150vh] top-0 right-0 opacity-10" src={map} ></img>
-      <img className=' invert h-8 absolute top-[15rem] right-[18rem]' src={pointer} />
+      <img className="absolute h-[150vh] top-0 right-0 opacity-10 object-cover" src={map} ></img>
+      <img className=' hidden lg:block invert h-8 absolute top-[15rem] right-[18rem]' src={pointer} />
       <div className=' mt-32 sm:pl-20 pl-10'>
         <motion.p
         initial={{ opacity: 0, y: -100}}

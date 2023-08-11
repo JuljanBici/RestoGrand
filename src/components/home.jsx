@@ -6,6 +6,7 @@ import beach from '../../public/images/beach.jpg'
 import food from '../../public/images/food1.jpg'
 import interior from '../../public/images/interior1.jpg'
 import service from '../../public/images/service1.jpg'
+import mainPattern from '../../public/images/mainPattern.png'
 import img1 from '../../public/images/img1.jpg'
 import img2 from '../../public/images/img2.jpg'
 import img3 from '../../public/images/img3.jpg'
@@ -61,17 +62,17 @@ const Home = () => {
         viewport={{once: true , amount:0.3 }} 
         transition={{type: 'spring', duration: 1.5, delay:0.3}}
         id="aboutUs" 
-        className=" flex flex-col pb-[50vh] md:flex-row h-full md:h-[130vh] w-screen mt-[5rem] md:mt-[5.8rem]"
+        className=" flex flex-col items-center md:items-start pb-[10vh] md:pb-[10vh] md:flex-row h-full md:h-[130vh] w-screen mt-[8rem] md:mt-[5.8rem]"
       >
-        <div className=" w-full md:w-[35%] font-medium text-2xl pr-16 pl-5 lg:pl-10">
-          <p className=" mt-[8rem]"> { lang ? 'WHO WE ARE' : 'KUSH JEMI NE'} </p>
+        <div className="flex justify-center md:justify-start w-full md:w-[35%] font-medium text-2xl pl-0 lg:pl-10">
+          <p> { lang ? 'WHO WE ARE' : 'KUSH JEMI NE'} </p>
         </div>
-        <p id="about" className="z-10 w-[80%] mt-[3rem] md:mt-[7rem] font-[Italiana] font-bold text-[2.5rem] md:text-[3.1rem] px-0 pl-5 lg:pl-10 md:px-28">
+        <p id="about" className="z-10 w-[80%] mt-[3rem] md:mt-[0rem] font-[Italiana] font-bold text-[2rem] md:text-[3.1rem] px-0 pl-5 lg:pl-10 md:px-28">
         { lang ? 'Experience coastal bliss at RestoGrand. Unleashing bold flavors, culinary agility, and unforgettable dining. Precision and passion creating lasting impressions, delighting taste buds with remarkable gastronomy.' : 'Përjetoni lumturinë bregdetare te RestoGrand. Lirimi i shijes të guximshme, lëvizshmëria kulinare, dhe darkë të paharrueshme. Preciziteti dhe pasioni krijohen përshtypje të përhershme, duke kënaqur pupillat e shijes me gastronomi të shquar.'}
         </p>
       </motion.div>
       <div className=" relative lg:h-screen flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row w-screen">
-        <img className=' absolute w-[20rem] lg:w-[30rem] lg:left-0 right-5 bottom-[-50px] lg:top-[-130px]' src='../../public/images/mainpattern.png' />
+        <img className=' absolute w-[20rem] lg:w-[30rem] lg:left-0 right-5 bottom-[-50px] lg:top-[-130px]' src={mainPattern} />
         <img className=" w-[90%] lg:w-[40rem] z-10 shadow-xl" src={beach} />
         <div className="flex flex-col justify-center gap-10 px-10 lg:px-24">
           <motion.p
@@ -142,7 +143,8 @@ const Home = () => {
         <motion.img 
           key={img}
           initial={{ opacity: 0, transition: { duration: 1.5, ease: "circOut" } }}
-          animate={{ opacity: 1 , transition: { duration: 1.5, ease: "circIn"}}}
+          whileInView={{ opacity: 1 , transition: { duration: 1.5, ease: "circIn"}}}
+          viewport={{once: false , amount:0.2 }} 
           exit={{ opacity: 1, transition: { duration: 1.5, ease: "circOut" } }}
           className=' z-30 shadow-xl ' src={img} />
       </div>
@@ -150,7 +152,7 @@ const Home = () => {
       <motion.div 
         ref={topRef} 
         initial="normal" 
-        className=' h-[400vh] md:h-[350vh] relative flex flex-col justify-center dark:bg-[#191919] dark:text-white duration-500 ease-in-out w-full'
+        className=' h-[300vh] md:h-[350vh] relative flex flex-col justify-center dark:bg-[#191919] dark:text-white duration-500 ease-in-out w-full'
         onView={() => {
           setIsInView(true);
         }}
@@ -163,7 +165,7 @@ const Home = () => {
           whileInView={{opacity: 1, y: 0}}
           viewport={{once: false , amount:0.3 }} 
           transition={{type: 'spring', duration: 1.5, delay:0.3}}
-          className=' w-[30rem] hidden lg:block absolute left-10' src={img1} />
+          className=' w-[30rem] block absolute left-10' src={img1} />
         <motion.img 
           initial={{ opacity: 0, y: 100}}
           whileInView={{opacity: 1, y: 0}}
@@ -181,13 +183,13 @@ const Home = () => {
           whileInView={{opacity: 1, y: 0}}
           viewport={{once: false , amount:0.3 }} 
           transition={{type: 'spring', duration: 1.5, delay:0.3}}
-          className=' w-[23rem] hidden lg:block absolute top-32 right-44' src={img4} />
+          className=' w-[23rem] block absolute top-32 right-44' src={img4} />
         <motion.img 
           initial={{ opacity: 0, y: 100}}
           whileInView={{opacity: 1, y: 0}}
           viewport={{once: false , amount:0.3 }} 
           transition={{type: 'spring', duration: 1.5, delay:0.3}}
-          className=' w-[35rem] hidden lg:block absolute bottom-44 right-28' src={img5} />
+          className=' w-[35rem] block absolute bottom-44 right-28' src={img5} />
         <p className=' pl-10 md:pl-32 font-bold mb-16 text-2xl'>{ lang ? 'We welcome you' : 'Te mirepresim '} </p>
         <p className='z-10 w-[90%] md:w-[65%] font-bold text-[2.5rem] md:text-[3.8rem] pl-10 md:pl-32'>
         { lang ? 'Savor the waves of culinary excellence, where our beachside restaurant artfully crafts exceptional flavors, forges unforgettable experiences, and creates enduring memories for every guest.' : 'Shijoni valët e shkëlqimit kulinar, ku restoranti ynë pranë bregdetit krijon me art shije të jashtëzakonshme, krijojnë përvoja të paharrueshme dhe kujtime të përhershme për çdo mysafir.'}
@@ -221,7 +223,7 @@ const Home = () => {
             transition={{ duration: 0.5 , delay: 0.3 }}
             className=' w-[80%] md:w-[40%] flex items-end ml-5 md:ml-0 pr-0 md:pr-16'>
           <Link to='/contact' className='flex items-end pb-10'>
-            <p className='text-[1rem] pr-0 md:pr-5'>{ lang ? 'Or contact us' : 'Ose na kontakto '}<span className=' font-[Italiana] text-[2rem] lg:text-[3rem] font-bold'>{ lang ? 'In Here' : 'Ketu'}</span></p>
+            <p className='text-[1rem] pr-0 md:pr-5'>{ lang ? 'Or contact us' : 'Ose na kontakto '}<span className=' font-[Italiana] text-[2rem] lg:text-[3rem] font-bold'>{ lang ? ' In Here' : 'Ketu'}</span></p>
             <img className=' w-[50%] lg:w-[70%]' src={contactUs} />
           </Link>
           </motion.div>
