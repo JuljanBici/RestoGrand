@@ -109,31 +109,16 @@ const Contact = () => {
           <p className="font-light pb-2 sm:text-xl"> { lang ? 'Get in touch or shoot us an email directly.' : 'Ose na shkruaj direkt ketu.'}  </p>
           <form ref={form} onSubmit={sendEmail} className="space-y-8 ">
               <div className="z-30">
-                <motion.input 
-                  initial={{ opacity: 0, y: -50}}
-                  whileInView={{opacity: 1, y: 0}}
-                  viewport={{once: true , amount:0.1 }} 
-                  transition={{type: 'spring', duration: 0.5, delay:0.3}}
-                  name='from_email' type="email" id="email" className="shadow-sm bg-transparent border border-gray-400 text-white text-sm rounded-lg placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none block w-full p-2.5 " placeholder="Email" required />
+                <input name='from_email' type="email" id="email" className="shadow-sm bg-transparent border border-gray-400 text-white text-sm rounded-lg placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none block w-full p-2.5 " placeholder="Email" required />
               </div>
               <div className="z-30">
-                  <motion.input
-                    initial={{ opacity: 0, y: -50}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={{once: true , amount:0.1 }} 
-                    transition={{type: 'spring', duration: 0.5, delay:0.6}}
-                    name='from_subject' type="text" id="subject" className="block p-3 w-full text-sm text-white bg-transparent rounded-lg border border-gray-400 shadow-sm placeholder:text-zinc-500 dark:placeholder:text-white focus:ring-primary-500 focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none" placeholder="Name" required />
+                  <input name='from_subject' type="text" id="subject" className="block p-3 w-full text-sm text-white bg-transparent rounded-lg border border-gray-400 shadow-sm placeholder:text-zinc-500 dark:placeholder:text-white focus:ring-primary-500 focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none" placeholder="Name" required />
               </div>
               <div className="sm:col-span-2 z-30">
-                  <motion.textarea 
-                    initial={{ opacity: 0, y: -50}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={{once: true , amount:0.1 }} 
-                    transition={{type: 'spring', duration: 0.5, delay:0.9}}
-                    name='message' rows="6" className=" resize-none block p-2.5 w-full text-sm text-white bg-transparent rounded-lg shadow-sm border border-gray-400 placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none" placeholder="Message"></motion.textarea>
+                  <textarea name='message' rows="6" className=" resize-none block p-2.5 w-full text-sm text-white bg-transparent rounded-lg shadow-sm border border-gray-400 placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none" placeholder="Message"></textarea>
               </div>
               <button type='submit' value='Send' className=" z-50 flex items-center justify-between rounded-2xl bg-[#1C1C1E] px-5 py-3 text-center text-sm font-semibold text-white hover:bg-gray-700 duration-200 hover:cursor-pointer active:duration-75">
-              { lang ? 'Send' : 'Dergo'} 
+                { lang ? 'Send' : 'Dergo'} 
               </button>
             </form>
         </div>
