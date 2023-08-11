@@ -100,7 +100,7 @@ const Home = () => {
         <div className="grid max-w-xl mx-auto">
           <div className="py-10 border-gray-300 border-y-[1px]">
             <details className="group">
-              <summary onClick={changer1} className="flex justify-between items-center font-medium cursor-pointer list-none">
+              <summary onClick={changer1} className="flex justify-between items-center font-medium cursor-pointer">
                 <span className='font-[Italiana] font-bold'> { lang ? 'What sets our food apart from others ?' : 'Çfarë e dallon ushqimin tonë nga të tjerët?'} </span>
                 <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
@@ -113,7 +113,7 @@ const Home = () => {
           </div>
           <div className="py-10 border-gray-300 border-b-[1px]">
             <details className="group">
-              <summary onClick={changer2} className="flex justify-between items-center font-medium cursor-pointer list-none">
+              <summary onClick={changer2} className="flex justify-between items-center font-medium cursor-pointer">
                 <span className='font-[Italiana] font-bold'> { lang ? 'Why choose our beachside restaurant ?' : 'Pse te zgjidhni restorantin ton buze detit ?'}  </span>
                 <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
@@ -126,7 +126,7 @@ const Home = () => {
           </div>
           <div className="py-10 border-gray-300 border-b-[1px]">
             <details className="group">
-              <summary onClick={changer3} className="flex justify-between items-center font-medium cursor-pointer list-none">
+              <summary onClick={changer3} className="flex justify-between items-center font-medium cursor-pointer">
                 <span className='font-[Italiana] font-bold'>{ lang ? 'How is our service remarkable?' : 'Si është shërbimi ynë i jashtëzakonshëm?'}</span>
                 <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
