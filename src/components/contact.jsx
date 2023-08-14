@@ -41,7 +41,7 @@ const Contact = () => {
 
   return (
     <motion.div 
-      className="relative bg-[#151515] text-white overflow-hidden" 
+      className="contact relative bg-[#151515] text-white overflow-hidden" 
       ref={topRef}
       onView={() => {
         setIsInView(true);
@@ -50,8 +50,6 @@ const Contact = () => {
         setIsInView(inView);
       }}
       >
-      <img className="absolute h-[150vh] top-0 right-0 opacity-10 object-cover" src={map} ></img>
-      <img className=' hidden lg:block invert h-8 absolute top-[15rem] right-[18rem]' src={pointer} />
       <div className=' mt-32 sm:pl-20 pl-10'>
         <motion.p
         initial={{ opacity: 0, y: -100}}
@@ -68,7 +66,7 @@ const Contact = () => {
             transition={{type: 'spring', duration: 0.5, delay:1}}
             >
             <div className='flex items-center pb-5'>
-              <p className=' text-gray-700'> { lang ? 'PHONE NUMBER' : 'NUMRI I TELEFONIT'} </p>
+              <p className=' '> { lang ? 'PHONE NUMBER' : 'NUMRI I TELEFONIT'} </p>
               <img className=' h-5 invert opacity-40 px-2' src={phone} />
             </div>
             <a className=' pb-2'>068 999 9999</a>
@@ -81,11 +79,11 @@ const Contact = () => {
             className='border-t-[1px] w-[90%] border-gray-700 py-5'
             >
           <div className='flex items-center pb-5'>
-              <p className=' text-gray-700'> { lang ? 'ADDRESS' : 'ADRESA'} </p>
+              <p className=' '> { lang ? 'ADDRESS' : 'ADRESA'} </p>
               <img className=' h-5 invert opacity-40 px-2' src={pointer} />
           </div>
             <p>Blv. Nënë Tereza</p>
-            <p>Shengjin, Albania</p>
+            <a className=' pb-2' href='https://goo.gl/maps/jt7MM4fAvTf55VcS6' >Shengjin, Albania</a>
           </motion.div>
         </div>
         <div className=' flex gap-32 w-[90%]  justify-between py-10 '>
@@ -97,34 +95,49 @@ const Contact = () => {
             transition={{type: 'spring', duration: 0.5, delay:1.6}}
             >
             <div className='flex items-center pb-5'>
-              <p className=' text-gray-700'>EMAIL</p>
+              <p className=' '>EMAIL</p>
               <img className=' h-5 invert opacity-40 px-2' src={email} />
             </div>
-            <a className=' pb-2'>julianbici14@gmail.com</a>
+            <a href="mailto:julianbici14@gmail.com" className=' pb-2'>julianbici14@gmail.com</a>
           </motion.div>
         </div>
       </div>
       <div className=' flex md:flex-row flex-col py-20 sm:pl-20 pl-10 gap-24'>
       <div className="  md:w-[40%] w-[90%]">
           <p className="font-light pb-2 sm:text-xl"> { lang ? 'Get in touch or shoot us an email directly.' : 'Ose na shkruaj direkt ketu.'}  </p>
-          <form ref={form} onSubmit={sendEmail} className="space-y-8 ">
+          <form ref={form} onSubmit={sendEmail} className=" z-10 space-y-8 ">
               <div className="z-30">
-                <input name='from_email' type="email" id="email" className="shadow-sm bg-transparent border border-gray-400 text-white text-sm rounded-lg placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none block w-full p-2.5 " placeholder="Email" required />
+                <motion.input 
+                  initial={{ opacity: 0, y: -50}}
+                  whileInView={{opacity: 1, y: 0}}
+                  viewport={{once: true , amount:0.1 }} 
+                  transition={{type: 'spring', duration: 0.5, delay:0.3}}
+                  name='from_email' type="email" id="email" className="shadow-sm bg-white bg-opacity-10 border border-gray-400 text-white text-sm rounded-lg placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none block w-full p-2.5 duration-150" placeholder="Email" required />
               </div>
               <div className="z-30">
-                  <input name='from_subject' type="text" id="subject" className="block p-3 w-full text-sm text-white bg-transparent rounded-lg border border-gray-400 shadow-sm placeholder:text-zinc-500 dark:placeholder:text-white focus:ring-primary-500 focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none" placeholder="Name" required />
+                  <motion.input
+                    initial={{ opacity: 0, y: -50}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true , amount:0.1 }} 
+                    transition={{type: 'spring', duration: 0.5, delay:0.6}}
+                    name='from_subject' type="text" id="subject" className="block p-3 w-full text-sm text-white bg-white bg-opacity-10 rounded-lg border border-gray-400 shadow-sm placeholder:text-zinc-500 dark:placeholder:text-white focus:ring-primary-500 focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none duration-150" placeholder="Name" required />
               </div>
               <div className="sm:col-span-2 z-30">
-                  <textarea name='message' rows="6" className=" resize-none block p-2.5 w-full text-sm text-white bg-transparent rounded-lg shadow-sm border border-gray-400 placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none" placeholder="Message"></textarea>
+                  <motion.textarea 
+                    initial={{ opacity: 0, y: -50}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true , amount:0.1 }} 
+                    transition={{type: 'spring', duration: 0.5, delay:0.9}}
+                    name='message' rows="6" className=" resize-none block p-2.5 w-full text-sm text-white bg-white bg-opacity-10 rounded-lg shadow-sm border border-gray-400 placeholder:text-zinc-500 dark:placeholder:text-white focus:bg-white dark:focus:bg-black dark:focus:bg-opacity-20 focus:bg-opacity-20 focus:outline-none duration-150" placeholder="Message"></motion.textarea>
               </div>
-              <button type='submit' value='Send' className=" z-50 flex items-center justify-between rounded-2xl bg-[#1C1C1E] px-5 py-3 text-center text-sm font-semibold text-white hover:bg-gray-700 duration-200 hover:cursor-pointer active:duration-75">
-                { lang ? 'Send' : 'Dergo'} 
+              <button type='submit' value='Send' className=" z-50 flex items-center justify-between rounded-2xl bg-[#c93510] px-5 py-3 text-center text-sm font-semibold text-white hover:bg-opacity-70 duration-200 hover:cursor-pointer active:duration-75">
+              { lang ? 'Send' : 'Dergo'} 
               </button>
             </form>
         </div>
         <div className='border-t-[1px] sm:w-[30%] w-[80%] border-gray-700 py-5'>
           <div className='flex items-center justify-center pb-5'>
-              <p className=' text-gray-700'> { lang ? 'Opening Hours' : 'Oret e hapjes'} </p>
+              <p className=' '> { lang ? 'Opening Hours' : 'Oret e hapjes'} </p>
               <img className=' h-5 invert opacity-40 px-2' src={pointer} />
           </div>
           <div className=' flex justify-evenly'>
